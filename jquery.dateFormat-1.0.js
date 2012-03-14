@@ -162,6 +162,20 @@
                             retValue += dayOfMonth;
                             pattern = "";
                             break;
+														case "dS":
+															retValue += dayOfMonth;
+															retValue += '<'+'sup>';
+														switch(Math.floor(dayOfMonth/10)%10){
+															case 1: retValue +='th'; break;
+															default:switch(dayOfMonth%10){
+																case 1: retValue += 'st'; break;
+																case 2: retValue += 'nd'; break;
+																default: retValue += 'th'; break;
+															}break;
+														} 
+														retValue += '<'+'/sup>';
+														pattern = "";
+														break;
                         case "MMMM":
                             retValue += strLongMonth(month);
                             pattern = "";
